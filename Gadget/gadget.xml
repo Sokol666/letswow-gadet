@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<gadget>
+    <name>Let'sWoW</name>
+    <namespace>letswow</namespace>
+    <version>2.0.0</version>
+    <author name="Taxsis">
+	<info url="www.letswow.ru" text="Let'sWoW" />
+      <logo src="author.png"/>
+    </author>
+  <copyright><!--_locComment_text="{Locked}"-->&#169; 2010 Taxsis</copyright>
+    <description>Гаджет для боковой панели от игрового сервера WoW 2.4.3 letswow.ru Отображает пинг и количество он-лайн игроков</description>
+    <icons>
+      <icon src="icon.png"/>
+    </icons>
+    <hosts>
+        <host name="sidebar">
+            <base type="HTML" src="main.html" />
+            <permissions>full</permissions>
+            <platform minPlatformVersion="1.0" />
+			<defaultImage src="drag.png"/>
+        </host>
+    </hosts>
+</gadget>

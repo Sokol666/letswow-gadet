@@ -1,0 +1,20 @@
+﻿<html>
+  <head>
+  <link href="css/settings.css" rel="stylesheet"/>
+  <script src="js/settings.js" language="javascript" type="text/javascript"></script>
+  </head>
+<body onLoad="LoadSetting();">
+Выберите реалм:<br/>
+<input type="radio" name="realm" value="0" onClick="saveRealm(0);"/>БК 
+<input type="radio" name="realm" value="1" onClick="saveRealm(1);"/>ЛК<br/>
+<input type="checkbox" id="showPing" onClick="saveShowPing();"/> Отображать пинг вместо ссылок.<br/>
+<input type="checkbox" id="newVer" onClick="newVer();"/> Уведомлять о новых версиях.<br/>
+<input type="checkbox" id="voteTopf" onClick="voteTopsf();"/> Уведомлять о голосовании.<br/>
+<input type="checkbox" id="crashNotify" onClick="crashNotify();"/> Уведомлять о крашах.<br/>
+Время обновления статистики:
+<input type="text" id="statTime" size="2" maxlength="2" onKeyUp="withoutCyr(statTime);" onChange="saveStatTime();">мин.<br/>
+время проверки пинга:
+<input type="text" id="pingTime" size="2" maxlength="3" onKeyUp="withoutCyr(pingTime);" onChange="savePingTime();">сек.<br/>
+<div id="bottom" align="center"><a href="http://letswow.ru">Гаджет игрового сервера Lets WoW</a><br/>
+Выражаю благодарность за неоценимую помощь в тестировании и новых идеях: DeadSando, Алтея, Diablero</div>
+</html>

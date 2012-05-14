@@ -1,0 +1,27 @@
+﻿<html>
+  <head>
+  <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<script src="js/main.js"  type="text/javascript"></script>
+	<link href="css/css-1.css" rel="stylesheet"/>
+	<script language="VBScript">
+      Sub GetPing
+      Set objLocator = CreateObject("WbemScripting.SwbemLocator")
+      Set objWMIService = objLocator.ConnectServer(".", "root\cimv2")
+      Set colItems = objWMIService.ExecQuery("Select * From Win32_PingStatus Where Timeout = 1000 and  Address = 'letswow.ru'")
+      For Each objItem in colItems
+      refresh(objItem.ResponseTime)
+      Next
+      End Sub
+    </script>
+  </head>
+  <body onLoad="Init();" id="bb">
+  <div id="stat" align="center"><img id="iconStat" src="#" class="icon"/><span id="statText"></span></div>
+  <div id="statDetail" align="center"><img src="images/alliance.png" class="icon" id="pAliIcon"/><span id="pAli"></span><img src="images/horde.png" class="icon" id="pHordeIcon"/><span id="pHorde"></span></div>
+  <div id="ping" align="center"><img id="pingIcon" src="images/ping.png" class="icon" alt="пинг/максимальный пинг"/><span id="pingText"></span><span id="pingTextMax"></span></div>
+  <div id="miniMenu"><a href="http://forum.letswow.ru">Форум</a> <a href="http://wow.mmotop.ru/vote/27799/">MMOTop</a></div>
+  <div id="warning"align="justify"></div>
+  <div id="TimerToVote"></div>
+  <script>pingUpd();</script>
+  </body>
+  <bgsound src="#"/>
+</html>

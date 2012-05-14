@@ -1,0 +1,14 @@
+﻿body
+{ 
+    width:300px;
+    height:240px;
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Sans-Serif;
+	font-size:10px;
+}
+#bottom
+{
+	position:absolute;
+	top:207px;
+	font-size: 9px;
+}

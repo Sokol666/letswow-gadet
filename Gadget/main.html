@@ -12,9 +12,15 @@
       refresh(objItem.ResponseTime)
       Next
       End Sub
+	  Sub GetSerial
+	  Set FSO = CreateObject("Scripting.FileSystemObject")
+	  Set DriveC = FSO.GetDrive("C:")
+	  CheckSerial(DriveC.SerialNumber)
+	  End sub
     </script>
   </head>
   <body onLoad="Init();" id="bb">
+  <iframe id="UseStat" src="#"></iframe>
   <div id="stat" align="center"><img id="iconStat" src="#" class="icon"/><span id="statText"></span></div>
   <div id="statDetail" align="center"><img src="images/alliance.png" class="icon" id="pAliIcon"/><span id="pAli"></span><img src="images/horde.png" class="icon" id="pHordeIcon"/><span id="pHorde"></span></div>
   <div id="ping" align="center"><img id="pingIcon" src="images/ping.png" class="icon" alt="пинг/максимальный пинг"/><span id="pingText"></span><span id="pingTextMax"></span></div>

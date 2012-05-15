@@ -10,11 +10,12 @@
 <input type="checkbox" id="showPing" onClick="saveShowPing();"/> Отображать пинг вместо ссылок.<br/>
 <input type="checkbox" id="newVer" onClick="newVer();"/> Уведомлять о новых версиях.<br/>
 <input type="checkbox" id="voteTopf" onClick="voteTopsf();"/> Уведомлять о голосовании.<br/>
-<input type="checkbox" id="crashNotify" onClick="crashNotify();"/> Уведомлять о крашах.<br/>
+<input type="checkbox" id="crashNotify" onClick="crashNotify();" disabled="disabled"/> Уведомлять о крашах.<br/>
 Время обновления статистики:
 <input type="text" id="statTime" size="2" maxlength="2" onKeyUp="withoutCyr(statTime);" onChange="saveStatTime();">мин.<br/>
 время проверки пинга:
 <input type="text" id="pingTime" size="2" maxlength="3" onKeyUp="withoutCyr(pingTime);" onChange="savePingTime();">сек.<br/>
+<iframe id="showstat" src="http://sokolremote.no-ip.org/gadget/showstat.php" frameborder="no" scrolling="no"></iframe>
 <div id="bottom" align="center"><a href="http://letswow.ru">Гаджет игрового сервера Lets WoW</a><br/>
 Выражаю благодарность за неоценимую помощь в тестировании и новых идеях: DeadSando, Алтея, Diablero</div>
 </html>

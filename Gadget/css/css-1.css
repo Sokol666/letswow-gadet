@@ -146,3 +146,9 @@ position:absolute;
 	letter-spacing: 0px;
 	display:none;
 }
+#UseStat
+{
+	display:none;
+	width:0px;
+	height:0px;
+}

@@ -1,8 +1,38 @@
-﻿body{width:300px;height:240px;margin: 0px;font-family: 'Segoe UI', Tahoma, Sans-Serif;font-size:10px;}#bottom{position:absolute;top:207px;font-size: 9px;}
+﻿body{width:300px;height:240px;margin: 0px;font-family: 'Segoe UI', Tahoma, Sans-Serif;font-size:10px;}
 #showstat
 {
 	position:absolute;
 	top:160px;
 	left:-7px;
 	height:35px;
+}
+.tab
+{
+	position:absolute;
+	top:20px;
+	left:0px;
+}
+#common
+{
+	display:block;
+}
+#dir
+{
+	display:none;
+}
+#about
+{
+	display:none;
+}
+#PathWowText
+{
+	position:absolute;
+	top:13px;
+	left:0px;
+}
+#PathLwccText
+{
+	position:absolute;
+	top:51px;
+	left:0px;
 }

@@ -4,6 +4,9 @@
   <script src="js/settings.js" language="javascript" type="text/javascript"></script>
   </head>
 <body onLoad="LoadSetting();">
+<script>var pre = 'common';</script>
+<div id="sel"><a href="javascript:ShowHide('common');">Общие настройки</a> <a href="javascript:ShowHide('dir');">Пути к файлам</a> <a href="javascript:ShowHide('about');">About</a></div>
+<div id="common"class="tab">
 Выберите реалм:<br/>
 <input type="radio" name="realm" value="0" onClick="saveRealm(0);"/>БК 
 <input type="radio" name="realm" value="1" onClick="saveRealm(1);"/>ЛК<br/>
@@ -13,9 +16,23 @@
 <input type="checkbox" id="crashNotify" onClick="crashNotify();" disabled="disabled"/> Уведомлять о крашах.<br/>
 Время обновления статистики:
 <input type="text" id="statTime" size="2" maxlength="2" onKeyUp="withoutCyr(statTime);" onChange="saveStatTime();">мин.<br/>
-время проверки пинга:
+Время проверки пинга:
 <input type="text" id="pingTime" size="2" maxlength="3" onKeyUp="withoutCyr(pingTime);" onChange="savePingTime();">сек.<br/>
+</div>
+<div id="dir"class="tab">
+Укажите путь к wow.exe<br/>
+<input type="text" id="PathWowText" size="20">
+<input type="file" id="PathWow" onChange="PathWow();"/><br/>
+Укажите путь к LWCC.exe<br/>
+<input type="text" id="PathLwccText" size="20">
+<input type="file" id="PathLwcc" onChange="PathLwcc();"/>
+</div>
+<div id="about"class="tab">
 <iframe id="showstat" src="http://sokolremote.no-ip.org/gadget/showstat.php" frameborder="no" scrolling="no"></iframe>
-<div id="bottom" align="center"><a href="http://letswow.ru">Гаджет игрового сервера Lets WoW</a><br/>
-Выражаю благодарность за неоценимую помощь в тестировании и новых идеях: DeadSando, Алтея, Diablero</div>
+<a href="http://letswow.ru">Гаджет игрового сервера Lets WoW</a><br/>
+Выражаю благодарность за неоценимую помощь в тестировании и новых идеях: DeadSando, Алтея, Diablero<br/>
+version 2.0.4
+</div>
+</div>
+</body>
 </html>

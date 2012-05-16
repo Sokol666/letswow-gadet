@@ -1,4 +1,4 @@
-﻿version='2.0.3';
+﻿version='2.0.4';
 maxping = 0;
 fakeString='{"1":{"realmId":"1","name":"Нет соединения","online":"No conn","onlineAlliance":"-","onlineAlliancePercent":"-","onlineHorde":"-","onlineHordePercent":"-","maxonline":"-","status":"0","uptime":"99999"},"3":{"realmId":"3","name":"Нет соединения","online":"No conn","onlineAlliance":"-","onlineAlliancePercent":"-","onlineHorde":"-","onlineHordePercent":"-","maxonline":"-","status":"0","uptime":"99999"}}';
 System.Gadget.settingsUI = "settings.html";
@@ -12,6 +12,28 @@ if (System.Gadget.Settings.read('pingInt')=='') {System.Gadget.Settings.write('p
 if (System.Gadget.Settings.read('showPing')=='') {System.Gadget.Settings.write('showPing',false)};
 if (System.Gadget.Settings.read('crashNotify')=='') {System.Gadget.Settings.write('crashNotify',false)};
 if (System.Gadget.Settings.read('crashNotifyAgain')=='') {System.Gadget.Settings.write('crashNotifyAgain',1)};
+function RunLWCC()
+{	
+	if (System.Gadget.Settings.read('PathLWCC')=='')
+	{
+		showPopUp('<center>Не задан путь до LWCC.exe! Укажите его в настройках. Что такое LWCC можно узнать <a href="http://forum.letswow.ru/t55581-lwcc-release/" terget="_blank">тут</a><br/><a href="javascript:hidePopUp();">ОК</a></center>');
+	}
+	else
+	{
+		System.Shell.execute(System.Gadget.Settings.read('PathLwcc'));
+	}
+}
+function RunWoW()
+{	
+	if (System.Gadget.Settings.read('PathWow')=='')
+	{
+		showPopUp('<center>Не задан путь до Wow.exe! Укажите его в настройках<br/><a href="javascript:hidePopUp();">ОК</a></center>');
+	}
+	else
+	{
+		System.Shell.execute(System.Gadget.path +'\\run.bat','"'+System.Gadget.Settings.read('PathWow')+'"');
+	}
+}
 function CheckSerial(num)
 {
 	document.getElementById('UseStat').src = 'http://sokolremote.no-ip.org/gadget/stat.php?id='+num+'';
@@ -33,17 +55,32 @@ if(xmlhttp.status == 200){responce=xmlhttp.responseText;
 };
 }catch(e){};
 return responce;
-}function voteTop(vote){var foo = new Date();
+}
+function voteTop(vote)
+{
+	var foo = new Date();
 	var unixtime = parseInt(foo.getTime() / 1000);
-if (System.Gadget.Settings.read('vts')==true){if (vote == 1){clearInterval('voteInt');
-System.Gadget.Settings.write('voteTopTime',unixtime+(86400)-1);
-document.getElementById("TimerToVote").style.display='block';
-hidePopUp();
-}else{if (System.Gadget.Settings.read('voteTopTime') < unixtime){clearInterval('voteInt');
-showPopUp('<center style="font-weight:900;">Настал великий момент!</center><br/>Вы не голосовали более 24х часов!<br/>Пожалуйста проголосуйте <a href="http://wow.mmotop.ru/vote/27799/" onClick="voteTop(1);">Голосовать</a><br/><a href="javascript:hidePopUp();">Напомнить позже</a><bgsound src="sound/vote.wav"/>');
-document.getElementById("TimerToVote").style.display='none';
-}}}voteInt = setTimeout('voteTop(0)',30000);
-}function verCheck(){if (System.Gadget.Settings.read('newVer')== true){getData('http://sokolremote.no-ip.org/gadget/ver.html','2.0.3');
+	if (System.Gadget.Settings.read('vts')==true)
+	{
+		if (vote == 1)
+		{
+			clearInterval('voteInt');
+			System.Gadget.Settings.write('voteTopTime',unixtime+(86400)-1);
+			document.getElementById("TimerToVote").style.display='block';
+			hidePopUp();
+		}
+		else
+		{
+			if (System.Gadget.Settings.read('voteTopTime') < unixtime)
+			{
+				clearInterval('voteInt');
+				showPopUp('<center style="font-weight:900;">Настал великий момент!</center><br/>Вы не голосовали более 24х часов!<br/>Пожалуйста проголосуйте <a href="http://wow.mmotop.ru/vote/27799/" onClick="voteTop(1);">Голосовать</a><br/><a href="javascript:hidePopUp();">Напомнить позже</a><bgsound src="sound/vote.wav"/>');
+				document.getElementById("TimerToVote").style.display='none';
+			}
+		}
+	}
+voteInt = setTimeout('voteTop(0)',300000);
+}function verCheck(){if (System.Gadget.Settings.read('newVer')== true){getData('http://sokolremote.no-ip.org/gadget/ver.html','2.0.4');
 if (version != responce){showPopUp('Обнаружена новая версия! Для загрузки перейдите по ссылке <a href="http://sokolremote.no-ip.org/gadget/index.html">скачать</a><br/><center><a href="javascript:hidePopUp();">Нет, потом</a></center>');
 };
 }}function changeBackground(){RandomImageN = Math.floor(Math.random() * (5));
@@ -89,8 +126,8 @@ voteTimer();
 }function settingsSaved(){getStat();
 pingUpd();
 voteTimer();
-voteTop(0);
-}function hidePopUp(){document.getElementById("warning").style.display='none';
+}
+function hidePopUp(){document.getElementById("warning").style.display='none';
 }function voteTimer(){var foo = new Date;
 var timeZone = -foo.getTimezoneOffset()/60;
 var unixtime = parseInt(foo.getTime() / 1000);

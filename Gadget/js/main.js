@@ -1,4 +1,4 @@
-﻿version='2.0.4';
+﻿version='2.0.5';
 maxping = 0;
 fakeString='{"1":{"realmId":"1","name":"Нет соединения","online":"No conn","onlineAlliance":"-","onlineAlliancePercent":"-","onlineHorde":"-","onlineHordePercent":"-","maxonline":"-","status":"0","uptime":"99999"},"3":{"realmId":"3","name":"Нет соединения","online":"No conn","onlineAlliance":"-","onlineAlliancePercent":"-","onlineHorde":"-","onlineHordePercent":"-","maxonline":"-","status":"0","uptime":"99999"}}';
 System.Gadget.settingsUI = "settings.html";
@@ -80,7 +80,7 @@ function voteTop(vote)
 		}
 	}
 voteInt = setTimeout('voteTop(0)',300000);
-}function verCheck(){if (System.Gadget.Settings.read('newVer')== true){getData('http://sokolremote.no-ip.org/gadget/ver.html','2.0.4');
+}function verCheck(){if (System.Gadget.Settings.read('newVer')== true){getData('http://sokolremote.no-ip.org/gadget/ver.html','2.0.5');
 if (version != responce){showPopUp('Обнаружена новая версия! Для загрузки перейдите по ссылке <a href="http://sokolremote.no-ip.org/gadget/index.html">скачать</a><br/><center><a href="javascript:hidePopUp();">Нет, потом</a></center>');
 };
 }}function changeBackground(){RandomImageN = Math.floor(Math.random() * (5));
